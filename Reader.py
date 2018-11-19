@@ -2,7 +2,7 @@ from Card import Card
 
 class Reader:
     
-    cards: set = set()
+    cards = set()
     
     def __init__(self, IDs):
         for ID in IDs:
@@ -12,17 +12,13 @@ class Reader:
     def isValid(self, ID):
         for card in self.cards:
             #print(str(card.getID()) + ", " + str(ID))
-            if (float(card.getID()) == float(ID)):
+            if (str(card.getID()) == str(ID)):
                 return True
         return False
     
     def getCards(self):
         return self.cards
 
-#print(createValidCards([1111, 2222]))
-#create cards
-#wait for input
-#check if valid
         
     
         

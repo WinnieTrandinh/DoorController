@@ -1,15 +1,17 @@
+import RPi.GPIO as GPIO
+
 class Motor:
-    import RPi.GPIO as GPIO
     
-    pins: tuple
+    pins = tuple()
     
     def __init__(self, enable, input1, input2):
-        GPIO.setMode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BOARD)
         self.pins = (enable, input1, input2)
-        for pin in pins:
-            GPIO.setup(pin, GPIO.out)
+        for pin in self.pins:
+            GPIO.setup(pin, GPIO.OUT)
         
     def run(self, forward):
+        pins = self.pins
         if forward:
             GPIO.output(pins[1], GPIO.LOW)
             GPIO.output(pins[2], GPIO.HIGH)
@@ -20,4 +22,8 @@ class Motor:
             GPIO.output(pins[0], GPIO.HIGH)
 
     def stop(self):
-        GPIO.output(pins[0], GPIO.LOW)
+        GPIO.output(self.pins[0], GPIO.LOW)
+        
+    def cleanup(self):
+        self.stop()
+        GPIO.cleanup()

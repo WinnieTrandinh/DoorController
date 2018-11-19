@@ -1,6 +1,6 @@
 class Card:
 
-    ID: float
+    ID = -1
     
     def __init__(self, cardID):
         self.ID = cardID
