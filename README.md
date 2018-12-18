@@ -3,8 +3,10 @@ Reads data from USB RFID reader and compares against valid card IDs.
 If valid, activates a mechanism to turn open the door handle.
 Runs on Raspberry Pi Zero.
 
-12V DC motor controller by L293D Driver.  
-##Setup:  
+**Images of mechanism found in Fabrication folder.**
+
+## Motor Driver Setup:  
+12V DC motor controller by L293D H Bridge.    
   Pin 1 -> Pi GPIO 12  
   Pin 2 -> Pi GPIO 11  
   Pin 3 -> Motor Terminal  
@@ -22,8 +24,6 @@ Runs on Raspberry Pi Zero.
   Pin 15 -> Empty  
   Pin 16 -> Pi 5V  
   
-##Pi Setup for Automatic Run on Startup:  
-  Add @lxterminal to /home/pi/.config/lxsession/LXDE-pi/autostart  
-  Add sudo python3 /'filePath'/DoorController/Main.py to /home/pi/.bashrc  
-
-##Images of mechanism found in Fabrication folder.  
+## Pi Setup for Automatic Run on Startup:  
+  Add `@lxterminal` to /home/pi/.config/lxsession/LXDE-pi/autostart  
+  Add `sudo python3 /'filePath'/DoorController/Main.py` to /home/pi/.bashrc  
